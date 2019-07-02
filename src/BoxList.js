@@ -11,15 +11,21 @@ class BoxList extends Component {
         {height: 150, width: 300, color: 'magenta'},
       ]
     }
+    this.addBox = this.addBox.bind(this);
   }
 
+  addBox(box){
+    this.setState(curState => ({
+      allBoxes: [...curState.allBoxes, box]
+    }))
+  }
 
   render(){
     const boxes = this.state.allBoxes.map(box => <Box height={box.height} width={box.width} color={box.color}/>);
     return(
       <div>
         <h1>Make a Box!</h1>
-        <NewBoxForm />
+        <NewBoxForm addBox={this.addBox}/>
         {boxes}
       </div>
     )

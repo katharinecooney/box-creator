@@ -8,9 +8,9 @@ class Box extends Component {
   }
   render(){
     let boxStyle = {
-      height: this.props.height,
-      width: this.props.width,
-      backgroundColor: this.props.color
+      height: `${this.props.height}px`,
+      width: `${this.props.width}px`,
+      backgroundColor: `${this.props.color}`
     }
 
     return(
