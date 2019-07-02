@@ -6,6 +6,7 @@ class Box extends Component {
     width: 200,
     color: 'pink'
   }
+
   render(){
     let boxStyle = {
       height: `${this.props.height}px`,
@@ -14,7 +15,11 @@ class Box extends Component {
     }
 
     return(
-      <div style={boxStyle}></div>
+      <div>
+        <div style={boxStyle}></div>
+        <button onClick={this.handleRemove}>Remove Box</button>
+      </div>
+      
     )
   }
 }
