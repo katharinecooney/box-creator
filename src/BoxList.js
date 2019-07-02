@@ -13,6 +13,7 @@ class BoxList extends Component {
       ]
     }
     this.addBox = this.addBox.bind(this);
+    this.remove = this.remove.bind(this);
   }
 
   addBox(box){
@@ -22,10 +23,17 @@ class BoxList extends Component {
     }))
   }
 
+  remove(id) {
+    this.setState(curState => ({
+      allBoxes: curState.allBoxes.filter(box => box.id !== id)
+    }))
+  }
+
   render(){
 
     const boxes = this.state.allBoxes.map(box => (
-      <Box key={box.id} height={box.height} width={box.width} color={box.color}/> 
+      // we add an id attribute so that we know which box to remove
+      <Box id={box.id} key={box.id} height={box.height} width={box.width} color={box.color} removeBox={this.remove}/> 
     ));
 
     return(

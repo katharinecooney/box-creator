@@ -6,6 +6,14 @@ class Box extends Component {
     width: 200,
     color: 'pink'
   }
+  constructor(props){
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+
+  handleRemove(id){
+    this.props.removeBox(this.props.id)
+  }
 
   render(){
     let boxStyle = {
